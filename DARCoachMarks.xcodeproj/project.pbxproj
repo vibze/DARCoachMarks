@@ -7,17 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183ACED1203A9C82001824CF /* DARCoachMarkDimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ACED0203A9C82001824CF /* DARCoachMarkDimmer.swift */; };
+		183ACED2203A9CB3001824CF /* DARCoachMarkDimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183ACED0203A9C82001824CF /* DARCoachMarkDimmer.swift */; };
 		184AEB7F2036D41F00599924 /* DARCoachMarks.h in Headers */ = {isa = PBXBuildFile; fileRef = 184AEB7D2036D41F00599924 /* DARCoachMarks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		184AEB8C2036D43F00599924 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEB8B2036D43F00599924 /* AppDelegate.swift */; };
+		184AEB8E2036D43F00599924 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEB8D2036D43F00599924 /* ViewController.swift */; };
+		184AEB912036D43F00599924 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184AEB8F2036D43F00599924 /* Main.storyboard */; };
+		184AEB932036D43F00599924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 184AEB922036D43F00599924 /* Assets.xcassets */; };
+		184AEB962036D43F00599924 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184AEB942036D43F00599924 /* LaunchScreen.storyboard */; };
+		184AEB9C2036D45B00599924 /* DARCoachMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEB9B2036D45B00599924 /* DARCoachMarksViewController.swift */; };
+		184AEB9E2036DA0D00599924 /* ExampleCoachMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEB9D2036DA0D00599924 /* ExampleCoachMarksViewController.swift */; };
+		184AEB9F2036DA1A00599924 /* DARCoachMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEB9B2036D45B00599924 /* DARCoachMarksViewController.swift */; };
+		184AEBA1203A9A5800599924 /* DARCoachMarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEBA0203A9A5800599924 /* DARCoachMarkConfig.swift */; };
+		184AEBA3203A9A7100599924 /* DARCoachMarkStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEBA2203A9A7100599924 /* DARCoachMarkStepView.swift */; };
+		184AEBA4203A9A8A00599924 /* DARCoachMarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEBA0203A9A5800599924 /* DARCoachMarkConfig.swift */; };
+		184AEBA5203A9A8A00599924 /* DARCoachMarkStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEBA2203A9A7100599924 /* DARCoachMarkStepView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		183ACED0203A9C82001824CF /* DARCoachMarkDimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DARCoachMarkDimmer.swift; sourceTree = "<group>"; };
 		184AEB7A2036D41F00599924 /* DARCoachMarks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DARCoachMarks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		184AEB7D2036D41F00599924 /* DARCoachMarks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DARCoachMarks.h; sourceTree = "<group>"; };
 		184AEB7E2036D41F00599924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		184AEB892036D43E00599924 /* DARCoachMarksExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DARCoachMarksExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		184AEB8B2036D43F00599924 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		184AEB8D2036D43F00599924 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		184AEB902036D43F00599924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		184AEB922036D43F00599924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		184AEB952036D43F00599924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		184AEB972036D43F00599924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		184AEB9B2036D45B00599924 /* DARCoachMarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DARCoachMarksViewController.swift; sourceTree = "<group>"; };
+		184AEB9D2036DA0D00599924 /* ExampleCoachMarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCoachMarksViewController.swift; sourceTree = "<group>"; };
+		184AEBA0203A9A5800599924 /* DARCoachMarkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DARCoachMarkConfig.swift; sourceTree = "<group>"; };
+		184AEBA2203A9A7100599924 /* DARCoachMarkStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DARCoachMarkStepView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		184AEB762036D41F00599924 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		184AEB862036D43E00599924 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -31,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				184AEB7C2036D41F00599924 /* DARCoachMarks */,
+				184AEB8A2036D43F00599924 /* DARCoachMarksExample */,
 				184AEB7B2036D41F00599924 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				184AEB7A2036D41F00599924 /* DARCoachMarks.framework */,
+				184AEB892036D43E00599924 /* DARCoachMarksExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,8 +83,26 @@
 			children = (
 				184AEB7D2036D41F00599924 /* DARCoachMarks.h */,
 				184AEB7E2036D41F00599924 /* Info.plist */,
+				184AEB9B2036D45B00599924 /* DARCoachMarksViewController.swift */,
+				184AEBA0203A9A5800599924 /* DARCoachMarkConfig.swift */,
+				184AEBA2203A9A7100599924 /* DARCoachMarkStepView.swift */,
+				183ACED0203A9C82001824CF /* DARCoachMarkDimmer.swift */,
 			);
 			path = DARCoachMarks;
+			sourceTree = "<group>";
+		};
+		184AEB8A2036D43F00599924 /* DARCoachMarksExample */ = {
+			isa = PBXGroup;
+			children = (
+				184AEB8B2036D43F00599924 /* AppDelegate.swift */,
+				184AEB8D2036D43F00599924 /* ViewController.swift */,
+				184AEB8F2036D43F00599924 /* Main.storyboard */,
+				184AEB922036D43F00599924 /* Assets.xcassets */,
+				184AEB942036D43F00599924 /* LaunchScreen.storyboard */,
+				184AEB972036D43F00599924 /* Info.plist */,
+				184AEB9D2036DA0D00599924 /* ExampleCoachMarksViewController.swift */,
+			);
+			path = DARCoachMarksExample;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,16 +137,39 @@
 			productReference = 184AEB7A2036D41F00599924 /* DARCoachMarks.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		184AEB882036D43E00599924 /* DARCoachMarksExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 184AEB982036D43F00599924 /* Build configuration list for PBXNativeTarget "DARCoachMarksExample" */;
+			buildPhases = (
+				184AEB852036D43E00599924 /* Sources */,
+				184AEB862036D43E00599924 /* Frameworks */,
+				184AEB872036D43E00599924 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DARCoachMarksExample;
+			productName = DARCoachMarksExample;
+			productReference = 184AEB892036D43E00599924 /* DARCoachMarksExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		184AEB712036D41F00599924 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = DAR;
 				TargetAttributes = {
 					184AEB792036D41F00599924 = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+					184AEB882036D43E00599924 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -105,6 +181,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 184AEB702036D41F00599924;
 			productRefGroup = 184AEB7B2036D41F00599924 /* Products */;
@@ -112,6 +189,7 @@
 			projectRoot = "";
 			targets = (
 				184AEB792036D41F00599924 /* DARCoachMarks */,
+				184AEB882036D43E00599924 /* DARCoachMarksExample */,
 			);
 		};
 /* End PBXProject section */
@@ -124,6 +202,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		184AEB872036D43E00599924 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				184AEB962036D43F00599924 /* LaunchScreen.storyboard in Resources */,
+				184AEB932036D43F00599924 /* Assets.xcassets in Resources */,
+				184AEB912036D43F00599924 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -131,10 +219,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184AEB9C2036D45B00599924 /* DARCoachMarksViewController.swift in Sources */,
+				183ACED1203A9C82001824CF /* DARCoachMarkDimmer.swift in Sources */,
+				184AEBA1203A9A5800599924 /* DARCoachMarkConfig.swift in Sources */,
+				184AEBA3203A9A7100599924 /* DARCoachMarkStepView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		184AEB852036D43E00599924 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				184AEB8E2036D43F00599924 /* ViewController.swift in Sources */,
+				184AEBA4203A9A8A00599924 /* DARCoachMarkConfig.swift in Sources */,
+				184AEBA5203A9A8A00599924 /* DARCoachMarkStepView.swift in Sources */,
+				184AEB8C2036D43F00599924 /* AppDelegate.swift in Sources */,
+				183ACED2203A9CB3001824CF /* DARCoachMarkDimmer.swift in Sources */,
+				184AEB9F2036DA1A00599924 /* DARCoachMarksViewController.swift in Sources */,
+				184AEB9E2036DA0D00599924 /* ExampleCoachMarksViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		184AEB8F2036D43F00599924 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				184AEB902036D43F00599924 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		184AEB942036D43F00599924 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				184AEB952036D43F00599924 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		184AEB802036D41F00599924 /* Debug */ = {
@@ -253,6 +378,7 @@
 		184AEB832036D41F00599924 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -262,10 +388,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = DARCoachMarks/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kz.darecosystem.ios.DARCoachMarks;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -274,6 +402,7 @@
 		184AEB842036D41F00599924 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -283,10 +412,43 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = DARCoachMarks/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kz.darecosystem.ios.DARCoachMarks;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		184AEB992036D43F00599924 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R87MWZ88KR;
+				INFOPLIST_FILE = DARCoachMarksExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kz.darecosystem.ios.DARCoachMarksExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		184AEB9A2036D43F00599924 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R87MWZ88KR;
+				INFOPLIST_FILE = DARCoachMarksExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kz.darecosystem.ios.DARCoachMarksExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -309,6 +471,15 @@
 			buildConfigurations = (
 				184AEB832036D41F00599924 /* Debug */,
 				184AEB842036D41F00599924 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		184AEB982036D43F00599924 /* Build configuration list for PBXNativeTarget "DARCoachMarksExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				184AEB992036D43F00599924 /* Debug */,
+				184AEB9A2036D43F00599924 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
