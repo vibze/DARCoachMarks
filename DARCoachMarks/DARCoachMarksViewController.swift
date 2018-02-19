@@ -14,7 +14,7 @@ public protocol DARCoachMarksViewControllerDelegate: class {
 }
 
 
-public class DARCoachMarksViewController: UIViewController {
+open class DARCoachMarksViewController: UIViewController {
     
     public weak var delegate: DARCoachMarksViewControllerDelegate?
     
