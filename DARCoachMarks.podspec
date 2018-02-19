@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
   s.source       = { :git => "https://github.com/vibze/DARCoachMarks.git", :tag => "#{s.version}" }
 
-  s.source_files  = "DARFormBuilder/**/*.{h,m,swift}"
-  s.exclude_files = "DARFormBuilderExample"
+  s.source_files  = "DARCoachMarks/**/*.{h,m,swift}"
+  s.exclude_files = "DARCoachMarksExample"
 
 end

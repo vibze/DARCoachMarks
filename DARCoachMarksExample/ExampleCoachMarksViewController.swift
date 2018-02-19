@@ -11,10 +11,10 @@ import UIKit
 
 class ExampleCoachMarksViewController: DARCoachMarksViewController {
     
-    override var dimmerGradientColors: [CGColor] {
+    override var dimmerGradientColors: [UIColor] {
         return [
-            UIColor(red: 0/255, green: 5/255, blue: 50/255, alpha: 0.85).cgColor,
-            UIColor(red: 0/255, green: 123/255, blue: 131/255, alpha: 0.85).cgColor
+            UIColor(red: 0/255, green: 5/255, blue: 50/255, alpha: 0.85),
+            UIColor(red: 0/255, green: 123/255, blue: 131/255, alpha: 0.85)
         ]
     }
     

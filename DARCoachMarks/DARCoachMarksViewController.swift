@@ -22,10 +22,10 @@ public class DARCoachMarksViewController: UIViewController {
     private var currentStep = 0
     private var currentCoachMarkView: DARCoachMarkStepView?
     
-    open var dimmerGradientColors: [CGColor] {
+    open var dimmerGradientColors: [UIColor] {
         return [
-            UIColor(red: 2/255, green: 5/255, blue: 50/255, alpha: 0.85).cgColor,
-            UIColor(red: 0/255, green: 123/255, blue: 131/255, alpha: 0.85).cgColor
+            UIColor(red: 2/255, green: 5/255, blue: 50/255, alpha: 0.85),
+            UIColor(red: 0/255, green: 123/255, blue: 131/255, alpha: 0.85)
         ]
     }
     
@@ -54,7 +54,7 @@ public class DARCoachMarksViewController: UIViewController {
         view.frame = presentingView.bounds
         
         view.addSubview(dimmer)
-        dimmer.gradientLayer.colors = dimmerGradientColors
+        dimmer.gradientLayer.colors = dimmerGradientColors.map{ $0.cgColor }
         dimmer.frame = view.bounds
         dimmer.alpha = 0
         UIView.animate(withDuration: 0.3) {
