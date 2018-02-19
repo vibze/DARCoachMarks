@@ -2,7 +2,7 @@
 
 Coach marks library extracted from DAR Applications.
 
-![demo](https://thumbs.gfycat.com/BestExcitableClumber-max-14mb.gif "x")
+![demo](https://thumbs.gfycat.com/BestExcitableClumber-size_restricted.gif)
 
 ## Quick Start
 
