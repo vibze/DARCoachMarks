@@ -11,9 +11,9 @@ First you have to create a view controller by extending `DARCoachMarksViewContro
 ```Swift
 class CatalogViewController: DARCoachMarksViewController {
 
-	// Number of coaching steps for this controller
-	override func numberOfSteps() -> Int {
-		return 1
+    // Number of coaching steps for this controller
+    override func numberOfSteps() -> Int {
+	return 1
     }
     
     // Coach mark configuration for certain step
