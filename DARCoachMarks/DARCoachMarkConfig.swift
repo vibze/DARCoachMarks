@@ -10,6 +10,9 @@ import UIKit
 
 
 public class DARCoachMarkConfig {
+    
+    var id: Int = 0
+    
     public var text = ""
     public var nextText = "Далее"
     public var skipText = "Пропустить все"

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DARCoachMarks"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "Coach marks library extracted from DAR Applications."
   s.description  = <<-DESC
     Coach marks library extracted from DAR Applications.

@@ -46,13 +46,17 @@ open class DARCoachMarksViewController: UIViewController {
         if let steps = steps {
             for i in steps {
                 guard !isStepSeen(i) else { continue }
-                presentedSteps.append(stepAt(number: i))
+                let step = stepAt(number: i)
+                step.id = i
+                presentedSteps.append(step)
             }
         }
         else {
             for i in 0..<numberOfSteps() {
                 guard !isStepSeen(i) else { continue }
-                presentedSteps.append(stepAt(number: i))
+                let step = stepAt(number: i)
+                step.id = i
+                presentedSteps.append(step)
             }
         }
         
@@ -112,9 +116,8 @@ open class DARCoachMarksViewController: UIViewController {
     }
     
     @objc func didTapSkip(_ sender: UIButton) {
-        for i in 0..<numberOfSteps() {
-            guard presentedSteps.contains(where: { $0.text == stepAt(number: i).text }) else { continue }
-            markStepAsSeen(i)
+        for step in presentedSteps {
+            markStepAsSeen(step.id)
         }
         dismiss()
     }
@@ -145,6 +148,6 @@ open class DARCoachMarksViewController: UIViewController {
         stepView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
         stepView.skipButton.addTarget(self, action: #selector(didTapSkip), for: .touchUpInside)
         stepView.present()
-        markStepAsSeen(index)
+        markStepAsSeen(step.id)
     }
 }
