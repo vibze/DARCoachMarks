@@ -42,7 +42,11 @@ class CatalogViewController: DARCoachMarksViewController {
 }
 ```
 
-After than instantiate your coaching view controller and call `present` or `presenOnce` method passing it a view that you want to display coach marks on. `presentOnce` method writes a flag in user defaults and doesnt display this particular CoachMarksViewController in future.
+After than instantiate your coaching view controller and call `present` passing it a view that you want to display coach marks on. This method also has an optional steps parameter which is an integer array for steps you'd like to show on this particular call.
+
+Steps that have been displayed will not be displayed again. So for example you have displayed 0 step of a coach marks controller. And on another screen you want to present 0, 1 and 2 steps. Since 0 step has been shown already the coach marking will start from step 1.
+
+If you want to reset shown steps status, you can call `resetPresentedStatus` method on an instance of your coach marks controller.
 
 ```Swift
 ...
@@ -51,7 +55,8 @@ let cmvc = ExampleCoachMarksViewController()
 override func viewDidLoad() {
     super.viewDidLoad()
     ...
-    cmvc.present(on: self.view)
+    cmvc.present(on: self.view, steps: [0, 1])
+    cmvc.resetPresentedStatus()
 }
 ```
 

@@ -33,21 +33,35 @@ open class DARCoachMarksViewController: UIViewController {
         return UIColor.blue
     }
     
-    open var userDefaultsKey: String {
-        return "\(String(describing: self))_coachMarkShown"
-    }
-    
     open func numberOfSteps() -> Int { return 0 }
     
     open func stepAt(number: Int) -> DARCoachMarkConfig {
         return DARCoachMarkConfig()
     }
     
-    public func present(on presentingView: UIView) {
-        guard currentStep < numberOfSteps() else {
+    private var presentedSteps: [DARCoachMarkConfig] = []
+    
+    public func present(on presentingView: UIView, steps: [Int]? = nil) {
+        presentedSteps = []
+        if let steps = steps {
+            for i in steps {
+                guard !isStepSeen(i) else { continue }
+                presentedSteps.append(stepAt(number: i))
+            }
+        }
+        else {
+            for i in 0..<numberOfSteps() {
+                guard !isStepSeen(i) else { continue }
+                presentedSteps.append(stepAt(number: i))
+            }
+        }
+        
+        guard currentStep < presentedSteps.count else {
             dimmer.removeFromSuperview()
             return
         }
+        
+        currentStep = 0
         
         presentingView.addSubview(view)
         view.backgroundColor = UIColor.clear
@@ -73,18 +87,16 @@ open class DARCoachMarksViewController: UIViewController {
         })
     }
     
-    public func presentOnce(on presentingView: UIView) {
-        guard UserDefaults.standard.bool(forKey: userDefaultsKey) else { return }
-        present(on: presentingView)
-        UserDefaults.standard.set(true, forKey: userDefaultsKey)
-    }
-    
     public func resetPresentedStatus() {
-        UserDefaults.standard.removeObject(forKey: userDefaultsKey)
+        for key in UserDefaults.standard.dictionaryRepresentation().keys {
+            if key.starts(with: "\(String(describing: self))_coachMarkShown") {
+                UserDefaults.standard.removeObject(forKey: key)
+            }
+        }
     }
     
     @objc func didTapNext(_ sender: UIButton) {
-        guard currentStep + 1 < numberOfSteps() else {
+        guard currentStep + 1 < presentedSteps.count else {
             dismiss()
             return
         }
@@ -100,12 +112,29 @@ open class DARCoachMarksViewController: UIViewController {
     }
     
     @objc func didTapSkip(_ sender: UIButton) {
+        for i in 0..<numberOfSteps() {
+            guard presentedSteps.contains(where: { $0.text == stepAt(number: i).text }) else { continue }
+            markStepAsSeen(i)
+        }
         dismiss()
+    }
+    
+    private func userDefaultsKeyForStep(_ i: Int) -> String {
+        return "\(String(describing: type(of: self)))_coachMarkShown:\(i)"
+    }
+    
+    private func markStepAsSeen(_ i: Int) {
+        print("Mark step as seen: \(userDefaultsKeyForStep(i))")
+        UserDefaults.standard.set(true, forKey: userDefaultsKeyForStep(i))
+    }
+    
+    private func isStepSeen(_ i: Int) -> Bool {
+        return UserDefaults.standard.bool(forKey: userDefaultsKeyForStep(i))
     }
     
     private func showStep(index: Int) {
         currentStep = index
-        let step = stepAt(number: currentStep)
+        let step = presentedSteps[currentStep]
         let stepView = DARCoachMarkStepView(frame: view.bounds, config: step, accentColor: accentColor)
         
         currentCoachMarkView?.removeFromSuperview()
@@ -116,5 +145,6 @@ open class DARCoachMarksViewController: UIViewController {
         stepView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
         stepView.skipButton.addTarget(self, action: #selector(didTapSkip), for: .touchUpInside)
         stepView.present()
+        markStepAsSeen(index)
     }
 }

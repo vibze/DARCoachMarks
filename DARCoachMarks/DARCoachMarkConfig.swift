@@ -17,7 +17,10 @@ public class DARCoachMarkConfig {
     public var highlightCornerRadius: CGFloat = 5
     public var hintWidth: CGFloat = 300
     public var hintBottom: CGFloat = 0
+    public var textBottom: CGFloat = 20
     public var arrowStartPoint = CGPoint(x: 0, y: 0)
     public var arrowControlPoint = CGPoint(x: 0, y: 0)
     public var arrowEndPoint = CGPoint(x: 0, y: 0)
+    
+    public init() {}
 }

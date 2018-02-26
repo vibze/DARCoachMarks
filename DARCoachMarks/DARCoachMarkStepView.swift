@@ -62,7 +62,7 @@ class DARCoachMarkStepView: UIView {
         nextButton.frame = CGRect(x: frame.width/2 - buttonWidth/2, y: skipButton.frame.minY - 44 - 10, width: buttonWidth, height: 44)
         
         let textSize = textLabel.sizeThatFits(CGSize(width: config.hintWidth, height: CGFloat.greatestFiniteMagnitude))
-        textLabel.frame = CGRect(x: frame.width/2 - config.hintWidth/2, y: nextButton.frame.minY - textSize.height - 20, width: config.hintWidth, height: textSize.height)
+        textLabel.frame = CGRect(x: frame.width/2 - config.hintWidth/2, y: nextButton.frame.minY - textSize.height - config.textBottom, width: config.hintWidth, height: textSize.height)
         
         drawLayer.frame = bounds
     }
