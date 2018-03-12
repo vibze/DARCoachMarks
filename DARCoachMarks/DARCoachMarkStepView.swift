@@ -37,8 +37,10 @@ class DARCoachMarkStepView: UIView {
         textLabel.numberOfLines = 0
         textLabel.lineBreakMode = .byWordWrapping
         textLabel.textAlignment = .center
+        skipButton.accessibilityIdentifier = "DARCoachMarks.SkipButton"
         skipButton.setTitle("Пропустить все", for: .normal)
         skipButton.setTitleColor(accentColor, for: .normal)
+        nextButton.accessibilityIdentifier = "DARCoachMarks.NextButton"
         nextButton.setTitle("Далее", for: .normal)
         nextButton.backgroundColor = accentColor
         nextButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
