@@ -16,7 +16,6 @@
 		184AEB932036D43F00599924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 184AEB922036D43F00599924 /* Assets.xcassets */; };
 		184AEB962036D43F00599924 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184AEB942036D43F00599924 /* LaunchScreen.storyboard */; };
 		184AEB9C2036D45B00599924 /* DARCoachMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEB9B2036D45B00599924 /* DARCoachMarksViewController.swift */; };
-		184AEB9E2036DA0D00599924 /* ExampleCoachMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEB9D2036DA0D00599924 /* ExampleCoachMarksViewController.swift */; };
 		184AEB9F2036DA1A00599924 /* DARCoachMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEB9B2036D45B00599924 /* DARCoachMarksViewController.swift */; };
 		184AEBA1203A9A5800599924 /* DARCoachMarkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEBA0203A9A5800599924 /* DARCoachMarkConfig.swift */; };
 		184AEBA3203A9A7100599924 /* DARCoachMarkStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AEBA2203A9A7100599924 /* DARCoachMarkStepView.swift */; };
@@ -37,7 +36,6 @@
 		184AEB952036D43F00599924 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		184AEB972036D43F00599924 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		184AEB9B2036D45B00599924 /* DARCoachMarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DARCoachMarksViewController.swift; sourceTree = "<group>"; };
-		184AEB9D2036DA0D00599924 /* ExampleCoachMarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCoachMarksViewController.swift; sourceTree = "<group>"; };
 		184AEBA0203A9A5800599924 /* DARCoachMarkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DARCoachMarkConfig.swift; sourceTree = "<group>"; };
 		184AEBA2203A9A7100599924 /* DARCoachMarkStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DARCoachMarkStepView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,7 +98,6 @@
 				184AEB922036D43F00599924 /* Assets.xcassets */,
 				184AEB942036D43F00599924 /* LaunchScreen.storyboard */,
 				184AEB972036D43F00599924 /* Info.plist */,
-				184AEB9D2036DA0D00599924 /* ExampleCoachMarksViewController.swift */,
 			);
 			path = DARCoachMarksExample;
 			sourceTree = "<group>";
@@ -236,7 +233,6 @@
 				184AEB8C2036D43F00599924 /* AppDelegate.swift in Sources */,
 				183ACED2203A9CB3001824CF /* DARCoachMarkDimmer.swift in Sources */,
 				184AEB9F2036DA1A00599924 /* DARCoachMarksViewController.swift in Sources */,
-				184AEB9E2036DA0D00599924 /* ExampleCoachMarksViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

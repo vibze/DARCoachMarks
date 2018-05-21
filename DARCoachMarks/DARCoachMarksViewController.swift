@@ -2,7 +2,7 @@
 //  DARCoachMarksViewController.swift
 //  DARCoachMarks
 //
-//  Created by Apple on 2/16/18.
+//  Created by Viktor Ten on 2/16/18.
 //  Copyright © 2018 DAR. All rights reserved.
 //
 
@@ -16,11 +16,17 @@ public protocol DARCoachMarksViewControllerDelegate: class {
 
 open class DARCoachMarksViewController: UIViewController {
     
+    static let shared = DARCoachMarksViewController()
+    
     public weak var delegate: DARCoachMarksViewControllerDelegate?
     
+    public var accentColor = UIColor.blue
+    public var presenter: UIView? = UIApplication.shared.keyWindow
+    
     private let dimmer = DARCoachMarkDimmer()
-    private var currentStep = 0
     private var currentCoachMarkView: DARCoachMarkStepView?
+    private var queue: [DARCoachMarkConfig] = []
+    private var isPresenting = false
     
     open var dimmerGradientColors: [UIColor] {
         return [
@@ -29,62 +35,71 @@ open class DARCoachMarksViewController: UIViewController {
         ]
     }
     
-    open var accentColor: UIColor {
-        return UIColor.blue
-    }
-    
-    open func numberOfSteps() -> Int { return 0 }
-    
-    open func stepAt(number: Int) -> DARCoachMarkConfig {
-        return DARCoachMarkConfig()
-    }
-    
-    private var presentedSteps: [DARCoachMarkConfig] = []
-    
-    public func present(on presentingView: UIView, steps: [Int]? = nil) {
-        presentedSteps = []
-        if let steps = steps {
-            for i in steps {
-                guard !isStepSeen(i) else { continue }
-                let step = stepAt(number: i)
-                step.id = i
-                presentedSteps.append(step)
-            }
+    public func addCoachMarksToDisplay(_ coachMarks: [DARCoachMarkConfig]) {
+        queue.append(contentsOf: coachMarks)
+        
+        if !isPresenting {
+            presentCoachMarks()
         }
-        else {
-            for i in 0..<numberOfSteps() {
-                guard !isStepSeen(i) else { continue }
-                let step = stepAt(number: i)
-                step.id = i
-                presentedSteps.append(step)
-            }
+    }
+    
+    public func removeCoachMarksFromQueue(coachMarkIds: Set<String>) {
+        queue = queue.filter({ !coachMarkIds.contains($0.id) })
+        
+        if isPresenting {
+            presentNextCoachMarkInQueue()
+        }
+    }
+    
+    public func presentCoachMarks() {
+        guard let presenter = presenter, queue.count > 0 else { return }
+        
+        isPresenting = true
+        presenter.addSubview(view)
+        UIView.animate(withDuration: 0.3) {
+            self.view.alpha = 1
         }
         
-        guard currentStep < presentedSteps.count else {
-            dimmer.removeFromSuperview()
+        presentNextCoachMarkInQueue()
+    }
+    
+    public func presentNextCoachMarkInQueue() {
+        if let currentCoachMarkView = currentCoachMarkView {
+            currentCoachMarkView.dismiss({
+                self.currentCoachMarkView?.removeFromSuperview()
+                self.currentCoachMarkView = nil
+                self.presentNextCoachMarkInQueue()
+            })
             return
         }
         
-        currentStep = 0
-        
-        presentingView.addSubview(view)
-        view.backgroundColor = UIColor.clear
-        view.frame = presentingView.bounds
-        
-        view.addSubview(dimmer)
-        dimmer.gradientLayer.colors = dimmerGradientColors.map{ $0.cgColor }
-        dimmer.frame = view.bounds
-        dimmer.alpha = 0
-        UIView.animate(withDuration: 0.3) {
-            self.dimmer.alpha = 1
+        guard queue.count > 0 else {
+            dismissCoachMarks()
+            return
         }
-        showStep(index: currentStep)
+        
+        let coachMark = queue.removeFirst()
+        guard !isMarkSeen(coachMark) else {
+            presentNextCoachMarkInQueue()
+            return
+        }
+        
+        let coachMarkView = DARCoachMarkStepView(frame: view.frame, config: coachMark, accentColor: accentColor)
+        coachMarkView.backgroundColor = .clear
+        view.addSubview(coachMarkView)
+        
+        dimmer.highlightFrame(rect: coachMark.highlightFrame, cornerRadius: coachMark.highlightCornerRadius)
+        coachMarkView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
+        coachMarkView.skipButton.addTarget(self, action: #selector(didTapSkip), for: .touchUpInside)
+        coachMarkView.present()
+        currentCoachMarkView = coachMarkView
     }
     
-    public func dismiss() {
-        currentCoachMarkView?.dismiss()
+    public func dismissCoachMarks() {
+        isPresenting = false
+        
         UIView.animate(withDuration: 0.3, animations: {
-            self.dimmer.alpha = 0
+            self.view.alpha = 0
         }, completion: { result in
             self.delegate?.darCoachMarksViewControllerDidFinish(self)
             self.view.removeFromSuperview()
@@ -99,55 +114,39 @@ open class DARCoachMarksViewController: UIViewController {
         }
     }
     
-    @objc func didTapNext(_ sender: UIButton) {
-        guard currentStep + 1 < presentedSteps.count else {
-            dismiss()
-            return
-        }
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.addSubview(dimmer)
+        dimmer.gradientLayer.colors = dimmerGradientColors.map{ $0.cgColor }
+        dimmer.alpha = 0
+    }
+    
+    open override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
-        if currentCoachMarkView == nil {
-            showStep(index: currentStep + 1)
-        }
-        else {
-            currentCoachMarkView?.dismiss{
-                self.showStep(index: self.currentStep + 1)
-            }
-        }
+        dimmer.frame = view.bounds
+        currentCoachMarkView?.frame = view.bounds
+    }
+    
+    @objc func didTapNext(_ sender: UIButton) {
+        presentNextCoachMarkInQueue()
     }
     
     @objc func didTapSkip(_ sender: UIButton) {
-        for step in presentedSteps {
-            markStepAsSeen(step.id)
-        }
-        dismiss()
+        queue.removeAll()
+        presentNextCoachMarkInQueue()
     }
     
-    private func userDefaultsKeyForStep(_ i: Int) -> String {
-        return "\(String(describing: type(of: self)))_coachMarkShown:\(i)"
+    private func userDefaultsKeyForMarkConfig(_ config: DARCoachMarkConfig) -> String {
+        return "\(String(describing: type(of: self)))_coachMarkShown:\(config.id)"
     }
     
-    private func markStepAsSeen(_ i: Int) {
-        print("Mark step as seen: \(userDefaultsKeyForStep(i))")
-        UserDefaults.standard.set(true, forKey: userDefaultsKeyForStep(i))
+    private func setMarkAsSeen(_ config: DARCoachMarkConfig) {
+        UserDefaults.standard.set(true, forKey: userDefaultsKeyForMarkConfig(config))
     }
     
-    private func isStepSeen(_ i: Int) -> Bool {
-        return UserDefaults.standard.bool(forKey: userDefaultsKeyForStep(i))
-    }
-    
-    private func showStep(index: Int) {
-        currentStep = index
-        let step = presentedSteps[currentStep]
-        let stepView = DARCoachMarkStepView(frame: view.bounds, config: step, accentColor: accentColor)
-        
-        currentCoachMarkView?.removeFromSuperview()
-        currentCoachMarkView = stepView
-        view.addSubview(stepView)
-        
-        dimmer.highlightFrame(rect: step.highlightFrame, cornerRadius: step.highlightCornerRadius)
-        stepView.nextButton.addTarget(self, action: #selector(didTapNext), for: .touchUpInside)
-        stepView.skipButton.addTarget(self, action: #selector(didTapSkip), for: .touchUpInside)
-        stepView.present()
-        markStepAsSeen(step.id)
+    private func isMarkSeen(_ config: DARCoachMarkConfig) -> Bool {
+        return UserDefaults.standard.bool(forKey: userDefaultsKeyForMarkConfig(config))
     }
 }
